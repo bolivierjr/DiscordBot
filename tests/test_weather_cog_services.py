@@ -4,11 +4,11 @@ from marshmallow import ValidationError
 from peewee import DatabaseError, Model, SqliteDatabase
 from requests import HTTPError, RequestException
 
-from discord_bot.cogs.models.users import User, UserSchema
-from discord_bot.cogs.utils.errors import LocationNotFound, WeatherNotFound
-from discord_bot.cogs.utils.services import WeatherService
-from discord_bot.cogs.utils.users import AnonymousUser, get_user
-from discord_bot.cogs.utils.weather import OpenWeatherMapAPI, WeatherAPI
+from discord_bot.cogs.weather.models.users import User, UserSchema
+from discord_bot.cogs.weather.utils.errors import LocationNotFound, WeatherNotFound
+from discord_bot.cogs.weather.utils.services import WeatherService
+from discord_bot.cogs.weather.utils.users import AnonymousUser, get_user
+from discord_bot.cogs.weather.utils.weather import OpenWeatherMapAPI, WeatherAPI
 
 from .fake_responses import (
     display_default_response,
