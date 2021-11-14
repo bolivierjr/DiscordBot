@@ -7,10 +7,10 @@ from marshmallow import ValidationError
 from peewee import DatabaseError, IntegrityError
 from requests import RequestException
 
-from ..models.users import User, UserSchema
-from ..utils.errors import LocationNotFound, WeatherNotFound
-from ..utils.services import query_current_weather, query_location
-from ..utils.users import AnonymousUser, get_user
+from .models.users import User, UserSchema
+from .utils.errors import LocationNotFound, WeatherNotFound
+from .utils.services import query_current_weather, query_location
+from .utils.users import AnonymousUser, get_user
 
 log = logging.getLogger(__name__)
 
@@ -151,7 +151,3 @@ class Weather(commands.Cog):
         except RequestException as exc:
             log.error(str(exc), exc_info=True)
             await ctx.send("> Unable to find this location.", delete_after=10)
-
-
-def setup(client: commands.Bot):
-    client.add_cog(Weather(client))

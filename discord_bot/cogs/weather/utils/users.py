@@ -8,8 +8,7 @@ from peewee import DatabaseError
 from ..models.users import User
 
 path: str = dirname(abspath(__file__))
-env_path: str = join(path, "..", ".env")
-load_dotenv(dotenv_path=env_path)
+load_dotenv()
 db_path: str = join(path, "..", "data", os.getenv("DB_NAME"))
 
 
