@@ -25,13 +25,13 @@ def run():
     async def on_ready():
         log.info(f"{client.user} is connected")
 
+    ##########
+    # Commands
+    ##########
     @client.command()
     async def ping(ctx: commands.Context):
         await ctx.send("Pong!")
 
-    ##########
-    # Commands
-    ##########
     @client.command()
     @commands.is_owner()
     async def load(ctx: commands.Context, extension: str):
