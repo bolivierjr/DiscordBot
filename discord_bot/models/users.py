@@ -17,7 +17,6 @@ log = logging.getLogger(__name__)
 
 class User(Model):
     nick = CharField(unique=True, max_length=15, null=False)
-    host = CharField(max_length=255, null=False)
     format = IntegerField(default=1)
     location = CharField(max_length=80, null=False)
     region = CharField(max_length=80, null=False)
@@ -44,7 +43,6 @@ class User(Model):
 class UserSchema(Schema):
     id = fields.Integer()
     nick = fields.String(required=True)
-    host = fields.String(required=True)
     format = fields.Integer(required=True)
     location = fields.String(required=True)
     region = fields.String(required=True)
