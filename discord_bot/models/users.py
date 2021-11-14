@@ -8,8 +8,7 @@ from marshmallow import Schema, ValidationError, fields, validates
 from peewee import CharField, DateTimeField, IntegerField, Model, SqliteDatabase
 
 path: str = dirname(abspath(__file__))
-env_path: str = join(path, "..", ".env")
-load_dotenv(dotenv_path=env_path)
+load_dotenv()
 db_path: str = join(path, "..", "data", os.getenv("DB_NAME"))
 
 db = SqliteDatabase(db_path)

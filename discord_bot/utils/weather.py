@@ -1,13 +1,15 @@
+import logging
 import os
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Union
 
 import requests
-from supybot import log
 
 from ..models.users import User
 from .errors import LocationNotFound, WeatherNotFound
 from .users import AnonymousUser
+
+log = logging.getLogger(__name__)
 
 
 class WeatherAPI(ABC):
@@ -190,8 +192,8 @@ class OpenWeatherMapAPI(WeatherAPI):
         summary: str = forecast[0].get("weather")[0].get("description").capitalize()
 
         display = (
-            f"\x02{place}\x02 :: {condition} {temperature} (Humidity: {humidity}%) | \x02Feels like\x02: {feels_like} "
-            f"| \x02Wind\x02: {wind_dir} at {wind} | \x02Today\x02: {summary}. High {high} - Low {low}"
+            f"> **{place}** :: {condition} {temperature} (Humidity: {humidity}%) | **Feels like**: {feels_like} "
+            f"| **Wind**: {wind_dir} at {wind} | **Today**: {summary}. High {high} - Low {low}"
         )
 
         return display
