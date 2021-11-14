@@ -16,7 +16,7 @@ log = logging.getLogger(__name__)
 
 
 def run():
-    client = commands.Bot(command_prefix="git.")
+    client = commands.Bot(command_prefix=".")
 
     ########
     # Events
