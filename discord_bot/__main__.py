@@ -29,20 +29,20 @@ def run():
     @client.command()
     async def load(ctx: commands.Context, extension: str):
         log.info(f"loading {extension} cog")
-        ctx.send(f"loading {extension}")
+        await ctx.send(f"loading {extension}")
         client.load_extension(f"discord_bot.cogs.{extension}")
 
     @client.command()
     async def unload(ctx: commands.Context, extension: str):
         log.info(f"unloading {extension} cog")
-        ctx.send(f"unloading {extension}")
+        await ctx.send(f"unloading {extension}")
         client.unload_extension(f"discord_bot.cogs.{extension}")
 
     @client.command()
     async def reload(ctx: commands.Context, extension: str):
         print(type(extension))
         log.info(f"reloading {extension} cog")
-        ctx.send(f"reloading {extension}")
+        await ctx.send(f"reloading {extension}")
         client.unload_extension(f"discord_bot.cogs.{extension}")
         client.load_extension(f"discord_bot.cogs.{extension}")
 
