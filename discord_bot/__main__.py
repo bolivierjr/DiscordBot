@@ -20,25 +20,29 @@ def run():
 
     @client.event
     async def on_ready():
-        print(f"{client.user} is connected")
+        log.info(f"{client.user} is connected")
 
     @client.command()
-    async def ping(ctx):
+    async def ping(ctx: commands.Context):
         await ctx.send("Pong!")
 
     @client.command()
-    async def load(ctx, extension):
+    async def load(ctx: commands.Context, extension: str):
         log.info(f"loading {extension} cog")
+        ctx.send(f"loading {extension}")
         client.load_extension(f"discord_bot.cogs.{extension}")
 
     @client.command()
-    async def unload(ctx, extension):
+    async def unload(ctx: commands.Context, extension: str):
         log.info(f"unloading {extension} cog")
+        ctx.send(f"unloading {extension}")
         client.unload_extension(f"discord_bot.cogs.{extension}")
 
     @client.command()
-    async def reload(ctx, extension):
+    async def reload(ctx: commands.Context, extension: str):
+        print(type(extension))
         log.info(f"reloading {extension} cog")
+        ctx.send(f"reloading {extension}")
         client.unload_extension(f"discord_bot.cogs.{extension}")
         client.load_extension(f"discord_bot.cogs.{extension}")
 

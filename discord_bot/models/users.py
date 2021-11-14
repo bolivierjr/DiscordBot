@@ -7,14 +7,13 @@ from dotenv import load_dotenv
 from marshmallow import Schema, ValidationError, fields, validates
 from peewee import CharField, DateTimeField, IntegerField, Model, SqliteDatabase
 
-log = logging.getLogger(__name__)
-
 path: str = dirname(abspath(__file__))
 env_path: str = join(path, "..", ".env")
 load_dotenv(dotenv_path=env_path)
 db_path: str = join(path, "..", "data", os.getenv("DB_NAME"))
 
 db = SqliteDatabase(db_path)
+log = logging.getLogger(__name__)
 
 
 class User(Model):
