@@ -1,3 +1,4 @@
+import logging
 import os
 from datetime import datetime
 from os.path import abspath, dirname, isfile, join
@@ -5,7 +6,8 @@ from os.path import abspath, dirname, isfile, join
 from dotenv import load_dotenv
 from marshmallow import Schema, ValidationError, fields, validates
 from peewee import CharField, DateTimeField, IntegerField, Model, SqliteDatabase
-from supybot import log
+
+log = logging.getLogger(__name__)
 
 path: str = dirname(abspath(__file__))
 env_path: str = join(path, "..", ".env")
