@@ -1,4 +1,4 @@
-name: Test Discord Bot And Cogs
+name: DiscordBot
 
 on:
   push:
