@@ -10,7 +10,6 @@ ENV PYTHONFAULTHANDLER=1 \
 
 RUN pip install --upgrade pip
 RUN pip install "poetry==$POETRY_VERSION"
-RUN python3 -m venv venv/
 
 COPY pyproject.toml poetry.lock ./
 
