@@ -1,4 +1,4 @@
-# WeatherBot
+# DiscordBot
 
 ![Build Status](https://github.com/bolivierjr/DiscordBot/actions/workflows/RunTests.yml/badge.svg?branch=master)
 [![Python](https://img.shields.io/badge/python-3.6%20and%20later-blue.svg)](https://img.shields.io/badge/python-3.6%20and%20later-blue.svg)
