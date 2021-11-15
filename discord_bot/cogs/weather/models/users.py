@@ -25,7 +25,7 @@ class User(Model):
 
     class Meta:
         database = db
-        db_table = "users"
+        table_name = "users"
 
     @classmethod
     def create_tables(cls) -> str:
