@@ -74,7 +74,7 @@ def run():
                     extension = subfile[:-3]
                     log.info(f"loading {extension} cog")
                     client.load_extension(f"discord_bot.cogs.{extension}")
-        elif filename.endswith(".py"):
+        elif filename.endswith(".py") and not subfile.startswith("__"):
             extension = filename[:-3]
             log.info(f"loading {extension} cog")
             client.load_extension(f"discord_bot.cogs.{extension}")
