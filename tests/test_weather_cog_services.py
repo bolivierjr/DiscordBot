@@ -373,7 +373,7 @@ class UserModelCreateTables(TestCase):
         """
         self.assertEqual(User.create_tables(), "Created users table.")
         self.assertEqual(User.create_tables(), "Users table already created.")
-        self.assertFalse(User.table_exists())
+        self.assertTrue(User.table_exists())
 
 
 class UserSchemaTestCase(TestCase):
