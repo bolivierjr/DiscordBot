@@ -1,6 +1,6 @@
 import logging
 import os
-from os.path import abspath, dirname
+from os.path import abspath, dirname, isdir
 
 from discord.ext import commands
 from dotenv import load_dotenv
@@ -67,7 +67,14 @@ def run():
     handle_commands()
     # Loads all cogs on startup
     for filename in os.listdir(f"{PATH}/cogs"):
-        if filename.endswith(".py"):
+        if isdir(f"{PATH}/cogs/{filename}"):
+            cog_directory = os.listdir(f"{PATH}/cogs/{filename}")
+            for subfile in cog_directory:
+                if subfile.endswith(".py") and not subfile.startswith("__"):
+                    extension = subfile[:-3]
+                    log.info(f"loading {extension} cog")
+                    client.load_extension(f"discord_bot.cogs.{extension}")
+        elif filename.endswith(".py"):
             extension = filename[:-3]
             log.info(f"loading {extension} cog")
             client.load_extension(f"discord_bot.cogs.{extension}")
