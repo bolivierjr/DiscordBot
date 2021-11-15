@@ -6,7 +6,10 @@ ENV PYTHONFAULTHANDLER=1 \
     PYTHONHASHSEED=random \
     PIP_NO_CACHE_DIR=false \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
-    POETRY_VERSION=1.1.11
+    POETRY_VERSION=1.1.11 \
+    DB_NAME=Weather.db \
+    TTL_CACHE_MAX_SIZE=64 \
+    TTL_CACHE_TIME=900
 
 RUN pip install --upgrade pip
 RUN pip install "poetry==$POETRY_VERSION"
