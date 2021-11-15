@@ -1,8 +1,8 @@
 test-all: test pre-commit
 
-# test:
-# 	docker-compose -f docker-compose.test.yml build
-# 	docker-compose -f docker-compose.test.yml run --rm limnoria-plugin-test supybot-test -v WeatherBot/
+test:
+	docker-compose -f docker-compose.test.yml build
+	docker-compose -f docker-compose.test.yml run --rm bot-test pytest -vvvs
 
 pre-commit:
 	pre-commit run --all-files

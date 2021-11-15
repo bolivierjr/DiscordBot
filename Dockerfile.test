@@ -18,5 +18,3 @@ RUN poetry config virtualenvs.in-project false --local
 RUN poetry install --no-interaction --no-ansi
 
 COPY . .
-
-CMD ["pytest", "-vvv"]
